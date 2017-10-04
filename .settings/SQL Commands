@@ -1,0 +1,257 @@
+
+Go to : https://www.tutorialspoint.com/execute_sql_online.php
+
+
+BEGIN TRANSACTION;
+
+
+DROP TABLE NAMES;
+
+/* Create a table called NAMES */
+CREATE TABLE NAMES(Id integer PRIMARY KEY, Name text, Salary integer);
+
+/* Create few records in this table */
+INSERT INTO NAMES VALUES(1,'Tom',5000);
+INSERT INTO NAMES VALUES(6,'Nancy',13000);
+INSERT INTO NAMES VALUES(2,'Lucy',13000);
+INSERT INTO NAMES VALUES(3,'Frank',23000);
+INSERT INTO NAMES VALUES(4,'Jane',41000);
+INSERT INTO NAMES VALUES(5,'Robert',25000);
+COMMIT;
+
+/* Display all the records from the table */
+
+select * from NAMES;
+
+/*   */
+
+/* max salary */
+
+select name, max(salary) as salary from NAMES;
+
+
+/* Second Max salary */
+
+SELECT name, MAX(salary) as salary FROM NAMES
+    WHERE salary < (SELECT MAX(salary) FROM NAMES); 
+
+
+/*  Min */
+
+select name, min(salary) as salary from NAMES;
+
+/* Third Largest salary  */
+
+SELECT name, MAX(salary) AS salary FROM NAMES
+    WHERE salary < (SELECT MAX(salary) FROM NAMES
+        WHERE salary < (SELECT MAX(salary)FROM NAMES)); 
+
+
+/* Count of record who has salary greated than some value  */
+
+select count(salary) from NAMES where salary >21000; 
+
+
+/* Average of salary  */
+
+select AVG(salary) from NAMES; 
+
+
+/* sum of salary */
+
+select sum(salary) from NAMES; 
+
+
+/*  Delete command */
+delete from NAMES where salary>=213000;
+
+
+
+/* Use of Distinct  */
+select distinct salary from NAMES;
+
+/* count with distinct  */
+SELECT Count(*) AS salary
+                FROM (SELECT DISTINCT salary FROM NAMES);
+
+
+// Update command
+update names set salary = 15000 where name='Nancy';
+
+
+
+//Delete all rows of data without deleting the table 
+
+DELETE * FROM table_name; or DELETE from table_name;
+
+
+// delete with condition
+DELETE FROM Customers
+	WHERE CustomerName='Alfreds Futterkiste';
+
+// top to some rows
+SELECT TOP 3 * FROM Customers;
+
+// top percentage
+SELECT TOP 70 percent * FROM Customers;
+
+________________________________________________________________________________________________________________________________________________
+
+Alter :
+
+	* For adding some column
+		ALTER TABLE Persons
+			ADD DateOfBirth date;
+	
+	* change type from date to Year  
+		ALTER TABLE Persons
+			ALTER COLUMN DateOfBirth year;
+	
+	* for dropping some column
+		ALTER TABLE Persons
+			DROP COLUMN DateOfBirth;
+
+
+________________________________________________________________________________________________________________________________________________
+
+Primary keys must contain UNIQUE values, and cannot contain NULL values. A table can have only one primary key, which may consist of single or multiple fields.
+
+A FOREIGN KEY is a key used to link two tables together. A FOREIGN KEY is a field (or collection of fields) in one table that refers to the PRIMARY KEY in another table.
+The table containing the foreign key is called the child table, and the table containing the candidate key is called the referenced or parent table.
+
+"Persons" Table
+
+PersonID	LastName	FirstName			Age
+	1		Hansen		Ola					30
+	2		Svendson	Tove				23
+	3		Pettersen	Kari				20
+
+
+"Orders" table:
+
+OrderID		OrderNumber		PersonID  
+	1		77895			3
+	2		44678			3
+	3		22456			2
+	4		24562			1
+	
+Notice that the "PersonID" column in the "Orders" table points to the "PersonID" column in the "Persons" table.
+
+The "PersonID" column in the "Persons" table is the PRIMARY KEY in the "Persons" table.
+
+The "PersonID" column in the "Orders" table is a FOREIGN KEY in the "Orders" table.
+
+The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables.
+
+The FOREIGN KEY constraint also prevents invalid data from being inserted into the foreign key column, because it has to be one of the values contained in the table it points to.
+
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL PRIMARY KEY,
+    OrderNumber int NOT NULL,
+    PersonID int FOREIGN KEY REFERENCES Persons(PersonID)
+);
+________________________________________________________________________________________________________________________________________________
+
+
+CREATE TABLE Persons (
+    ID int NOT NULL,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+	Age int CHECK (Age>=18)  // it will check age should not be less than 18 years
+);
+
+________________________________________________________________________________________________________________________________________________
+
+SQL CREATE VIEW Statement: In SQL, a view is a virtual table based on the result-set of an SQL statement.
+
+A view contains rows and columns, just like a real table. The fields in a view are fields from one or more real tables in the database.
+
+________________________________________________________________________________________________________________________________________________
+
+SQL Injection : SQL injection is a code injection technique that might destroy your database. SQL injection is one of the most common web hacking techniques.SQL injection is the 
+	placement of malicious code in SQL statements, via web page input.
+
+	SELECT * FROM Users WHERE UserId = 105 OR 1=1;
+
+________________________________________________________________________________________________________________________________________________
+						Join 
+						
+Inner_Join 2 tables:
+
+SELECT column_name(s)
+FROM table1
+INNER JOIN table2 ON table1.column_name = table2.column_name;
+
+		
+		SELECT Orders.OrderID, Customers.CustomerName
+		FROM Orders
+		INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID;						
+						
+	
+Inner_Join 3 tables:
+
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+________________________________________________________________________________________________________________________________________________
+
+LEFT JOIN : The LEFT JOIN keyword returns all records from the left table (table1), and the matched records from the right table (table2). The result is NULL from the right side, if there is no match.
+	
+	SELECT Customers.CustomerName, Orders.OrderID
+	FROM Customers
+	LEFT JOIN Orders ON Customers.CustomerID = Orders.CustomerID
+	ORDER BY Customers.CustomerName;
+	
+	The LEFT JOIN keyword returns all records from the left table (Customers), even if there are no matches in the right table (Orders).
+________________________________________________________________________________________________________________________________________________
+
+RIGHT JOIN : The RIGHT JOIN keyword returns all records from the right table (table2), and the matched records from the left table (table1). The result is NULL from the left side, when there is no match.
+	
+	SELECT Orders.OrderID, Employees.LastName, Employees.FirstName
+	FROM Orders
+	RIGHT JOIN Employees ON Orders.EmployeeID = Employees.EmployeeID
+	ORDER BY Orders.OrderID;
+
+	The RIGHT JOIN keyword returns all records from the right table (Employees), even if there are no matches in the left table (Orders)
+
+________________________________________________________________________________________________________________________________________________
+
+OUTER JOIN : OUTER JOIN keyword return all records when there is a match in either left (table1) or right (table2) table records.
+
+	
+	SELECT Customers.CustomerName, Orders.OrderID
+	FROM Customers
+	FULL OUTER JOIN Orders ON Customers.CustomerID=Orders.CustomerID
+	ORDER BY Customers.CustomerName;
+
+	The FULL OUTER JOIN keyword returns all the rows from the left table (Custom
+________________________________________________________________________________________________________________________________________________
+
+Self JOIN : A self JOIN is a regular join, but the table is joined with itself.
+	
+	SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+	FROM Customers A, Customers B
+	WHERE A.CustomerID <> B.CustomerID
+	AND A.City = B.City 
+	ORDER BY A.City;
+________________________________________________________________________________________________________________________________________________
+	
+Select from multiple table
+
+https://www.javatpoint.com/sql-select-from-multiple-tables
+________________________________________________________________________________________________________________________________________________
+
+Group By : The SQL GROUP BY clause is used in collaboration with the SELECT statement to arrange identical data into groups. This GROUP BY clause follows the 
+			WHERE clause in a SELECT statement and precedes the ORDER BY clause.
+
+			
+		 SELECT NAME, SUM(SALARY) FROM CUSTOMERS
+			   GROUP BY NAME;
+			   
+		it will print the data from select statement and apply the ordering on which you have applied group By. Also if same data is entered 
+			multiple time it will do the sum and print one column only.
+			   
+________________________________________________________________________________________________________________________________________________
+

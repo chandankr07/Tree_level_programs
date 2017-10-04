@@ -1,0 +1,126 @@
+
+	App Idea :
+	
+	There will be multiple location in a city from where you can get the Bike. go to your places and then submit the bike at 
+	other nearby station when trip ends.
+	
+	Vehicle class{
+		
+		String Make&Model;
+		Int 	KMDriven;
+		int Condition ; 
+	
+	}	
+	
+	While Booking :
+	
+	selectlocation(String Location_from_map);   <- return the location of the station
+	
+	Get_Availability(); <- return a hashmap with vehicle and no of availability
+	
+	add_vehicle(String vehicle_id); <- all the details will be shown to user and option to book
+	
+	Booking_started() <- add all user details with booking id, name, Phone number, photo, Pancard, Aadhar card, DL details and all
+	
+	Booking_done(); <- generate booking id
+		
+	
+	While submittimg :
+	
+	check_booking_id(); <- check all the details and while booking was happened. 
+	
+	Check_vehicle_condition(); <- inspect the vehicle
+	
+	Check_km_driven()        <- check how many KM is driven if it's for long route. for small 
+	
+	Calculate_money();   <= if it's not prepaid then calculate based on Km driven and all.
+	
+	Go_to_payment(String transaction_id) <- do the payment after calculating everything.
+	
+	
+	After Submitting :
+		
+	Payment_done <- add all value to the database.
+	
+	generate_invoice  <- generate invoice and send that to customer 
+	
+	Customer Profile Class{
+	
+	String Cust_Name ;
+	String Cust_email;
+	int 	Mobile_no;
+	int 	Age;
+	Boolean male/Female;
+	
+	
+	Picture of the Person.
+	int Pervious_driven;
+	int previous_trips;
+	
+	}
+	
+	
+	Workflow and Architecture :
+	
+	You have the App.
+	Open app and then look for the Nearby station. It will show you the vehicle availability. 
+	based on each request it will decrease the availability.
+	
+	put both Source and Destination and it will show the nearby station to destination.
+	
+	if you are ok with it will show the expected KM driven and charges.
+	
+	if you are ok with all it will ask you to Login/register in app. while registering it will	ask for all your details like name, number,email, 
+	driving license and other details like 	PAN and AAdhar card number.
+
+	if you are a new customer you need to swipe card for 10K and you will get 5% cash back to card for next 5 transaction. 
+	
+	you Do the payment go to Station. Pick your Bike <note down the KM driven and all> Then use and	Drop at the nearby station.
+	
+	Initially we can start with Activa and later we can move to Royal enfield and Harley Davidson.
+	
+	
+	For business Architecture :
+	
+	No of Bike stations : we can have 4-5 station in city like Bangalore, Delhi, Chennai, Mumbai, Kolkata
+	
+	for tourist places like OOTY, Coorg, munnar, chikmanglur, Kodaikanal, Mysore(1 or 2 One near infosys campus). we can have 1-2 Stations. 
+	
+	for smaller city like Bhopal, Jaipur, Dehradun, mussorie we can have 1-2 staions.
+
+	We can add already renting local vendors to our app and this way we will save alot of trouble finding places, Buying vehicle. 
+	
+	  
+	For Payment :
+	
+	
+	Mostly we will user Paytm. we can discuss this how we can proceed with payment. 
+	
+	
+	The paltform :- 
+	
+	it will be more like if anybody have some money and he want to invest this to somewhere then he/she will buy some vehicle and add them on our
+	platform. if person has some parking space and 3-4 bikes then add them on our app and become a vendor. 
+	
+	Charges : 
+	
+	06:00 AM - 10:00 AM: 300 INR
+	
+	05:00 PM - 08:00 PM  : 300 INR
+	
+	10:00 AM - 06:00 PM : 500 INR
+		36
+	Full day    : 06:00 AM-06:00 PM : 600
+	Full Night  : 06:00 PM-06:00 AM : 600
+	
+	Outstation in same State :
+	
+		Some people lets suppose wanted to go to ooty on bike and then travel back to bangalore in Bus.
+		we can rent a bike to them which they can drop in ooty and come back however they want. 
+		
+		We can have some payment_scheme here as well. 
+		
+	For paying the vendor :
+		
+			We can have some calculation/distribution.
+		

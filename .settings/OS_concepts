@@ -1,0 +1,57 @@
+
+Thread and processor :- 
+
+You can have more than four active threads on a quad core system. There is scheduling, unless you can guarantee that processes won't try to create more threads than there are processors.
+
+Yes, you can have multiple threads on a single-core computer.
+
+The difference between single processor and multi-processor systems is that a multi-processor system can indeed do more than one thing at a time. It can do N things at a time, 
+	
+where N is the number of processor cores. A single-processor core can only do one thing at a time. As WhozCraig said in his comment, it's the difference between actual and perceived concurrency
+	
+
+The java.lang.Thread.yield() method causes the currently executing thread object to temporarily pause and allow other threads to execute.
+
+1.  Basically, a single CPU core can execute ONE thread at any one time. You can spawn thousands, but only one can execute per CPU core at any one time. Now, because threads can be IO blocked,moved to disk, or not run for a variety of reasons, if you have multiple things that need to be done that do not have to be executed in sequential order, it makes sense to spawn each task as its own thread, so if one thread can not be run [for whatever reason], your application can still get some work done, as opposed to none at all.
+	 
+ 2. "Basically, a single CPU core can execute ONE thread at any time", as I said, the cpu executes millions of instructions each second, and switches from one task to another every few milliseconds giving you the illusion that is running several taks (threads) at the same time. For instance, windows, it has a "thread" that runs continually waiting for user input, be it moving the mouse, pressing a button..this thread is always active, even when you are playing games, music, etc. Why adding more threads is not giving you any additional benefits? but it could be also that your cpu is reaching its limit, or that simply the thread cannot be splitted more, for instance as he mentioned you wont get much benefit for multithreading reading or writing operations from the file system.
+
+ 	if you're running more than one program each can use a core without interfering with performance on the other, but if you're only running one program then it can only utilize one of the cores and the other either does low-grade background application work or sits idle), new video games (and I imagine other software) are being developed using multi-thread programming. 
+ 	
+ This means that the program can be divided into multiple "threads" of computable data so that one program can be essentially cut in half, processed separately with your two cores (thus being finished in half the time), and reassembled at the other end. When this becomes mainstream, a Dual Core computer will move at half the speed of single core even with only one program running.
+  
+  
+  DMA : 
+  
+  Direct Memory Access: The data transfer between a fast storage media such as magnetic disk and memory unit is limited by the speed of the CPU. Thus we can allow the peripherals directly communicate with each other using the memory buses, removing the intervention of the CPU. This type of data transfer technique is known as DMA or direct memory access.
+   
+   During DMA the CPU is idle and it has no control over the memory buses. The DMA controller takes over the buses to manage the transfer directly between the I/O devices and the memory unit.
+   Without DMA, when the CPU is using programmed input/output, it is typically fully occupied for the entire duration of the read or write operation, and is thus unavailable to perform other work.
+   With DMA, the CPU first initiates the transfer, then it does other operations while the transfer is in progress, and it finally receives an interrupt from the DMA controller when the operation is done. This feature is useful at any time that the CPU cannot keep up with the rate of data transfer, or when the CPU needs to perform useful work while waiting for a relatively slow I/O data transfer. Many hardware systems use DMA, including disk drive controllers, graphics cards, network cards and sound cards.
+   
+ Cache :
+   
+Definition - What does Cache Memory mean?
+
+Cache memory is a small-sized type of volatile computer memory that provides high-speed data access to a processor and stores frequently used computer programs, applications and data. 
+
+It is the fastest memory in a computer, and is typically integrated onto the motherboard and directly embedded in the processor or main random access memory (RAM).
+ 	
+ Cache memory provides faster data storage and access by storing instances of programs and data routinely accessed by the processor. Thus, when a processor requests data that already has an instance in the cache memory, it does not need to go to the main memory or the hard disk to fetch the data.
+Cache memory can be primary or secondary cache memory, with primary cache memory directly integrated into (or closest to) the processor. In addition to hardware-based cache, cache memory also can be a disk cache, where a reserved portion on a disk stores and provides access to frequently accessed data/applications from the disk.
+	 	
+Context Switch :
+	
+A context switch is sometimes described as the kernel suspending execution of one process(or Thread on the CPU and resuming execution of some other process(or Thread) that had previously been suspended. 
+Although this wording can help clarify the concept, it can be confusing in itself because a process is, by definition, an executing instance of a program. Thus the wording suspending progression of a process(or Thread) might be preferable.	 	
+ 		
+ CPU's don't do context switching. Operating Systems do.
+ 		
+ When a CPU switches from executing one thread to executing another, the CPU needs to save the local data, program pointer etc. of the current thread, and load the local data, program pointer etc. of the next thread to execute. This switch is called a "context switch". The CPU switches from executing in the context of one thread to executing in the context of another.
+ 		 
+Context switching isn't cheap. You don't want to switch between threads more than necessary.
+
+In computing, a context switch is the process of storing and restoring the state (more specifically, the execution context) of a process or thread so that execution can be resumed from the same point at a later time. This enables multiple processes to share a single CPU and is an essential feature of a multitasking operating system.
+ 	
+ 	
+ 	

@@ -1,0 +1,43 @@
+
+Hangout 1:
+
+Mobile
+DataBase
+Analytics
+Bluetooth protocol
+Logical Link Control and Adaptation Protocol
+Design a Database for anything
+
+Prepare : 
+
+Map hs a method : Map.remove(key) :> It will remove key value pair from the Hashmap.
+
+Swap : 
+	a= a+b;
+	b=a-b;
+	a=a-b;
+or,
+	a=a*b;
+	b=a/b;
+	a=a/b;
+
+Common element in 2 array : using HashSet we can identify
+
+Equality of two Strings : either Arrays.equals(s1,s2) or s1[i] ==s2[i]
+
+rotation of one string is another : s3 = s1+s1 add s1 to itself and check whether s3.contains(s2) is true or not
+	
+generating random numbers : 
+		Random random = new Random();
+    	System.out.println("Random Integers : "+random.nextInt());	
+		
+vec.retainAll(vec2) : retain all intersection elements
+
+digitcount in a big number : same as anagram and occurance 
+
+List to array : list.toArray(array);
+arrat to list : Arrays.asList(array);
+
+TreeMap: iterate in sorted order
+HashMap : No order
+Linkedhashmap : in which order entry happenend
