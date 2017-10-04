@@ -1,0 +1,144 @@
+ref : 
+	http://tutorials.jenkov.com/java-concurrency/index.html
+	https://docs.oracle.com/javase/tutorial/essential/concurrency/simple.html																	
+																	
+																	
+																	Lesson: Concurrency
+
+Computer users take it for granted that their systems can do more than one thing at a time. They assume that they can continue to work in a word processor, while other applications download files, manage the print queue, and stream audio. Even a single application is often expected to do more than one thing at a time. For example, that streaming audio application must simultaneously read the digital audio off the network, decompress it, manage playback, and update its display. Even the word processor should always be ready to respond to keyboard and mouse events, no matter how busy it is reformatting text or updating the display. Software that can do such things is known as concurrent software.
+********************************************************************************************************************************************
+
+The Java platform is designed from the ground up to support concurrent programming, with basic concurrency support in the Java programming language and the Java class libraries. 
+Since version 5.0, the Java platform has also included high-level concurrency APIs. This lesson introduces the platform's basic concurrency support and summarizes some of the high-level APIs in the java.util.concurrent packages.
+
+********************************************************************************************************************************************
+
+Processes and Threads
+
+In concurrent programming, there are two basic units of execution: processes and threads. In the Java programming language, concurrent programming is mostly concerned with threads. However, processes are also important.
+
+A computer system normally has many active processes and threads. This is true even in systems that only have a single execution core, and thus only have one thread actually executing at any given moment. Processing time for a single core is shared among processes and threads through an OS feature called time slicing.
+
+It's becoming more and more common for computer systems to have multiple processors or processors with multiple execution cores. This greatly enhances a system's capacity for concurrent execution of processes and threads — but concurrency is possible even on simple systems, without multiple processors or execution cores.
+
+********************************************************************************************************************************************
+
+Processes
+
+A process has a self-contained execution environment. A process generally has a complete, private set of basic run-time resources; in particular, each process has its own memory space.
+Processes are often seen as synonymous with programs or applications.To facilitate communication between processes, most operating systems support Inter Process Communication (IPC) resources, such as pipes and sockets. IPC is used not just for communication between processes on the same system, but processes on different systems.
+
+********************************************************************************************************************************************
+
+Threads
+
+Threads are sometimes called lightweight processes. Both processes and threads provide an execution environment, but creating a new thread requires fewer resources than creating a new process.
+
+Threads exist within a process — every process has at least one. Threads share the process's resources, including memory and open files. This makes for efficient, but potentially problematic, communication.
+
+********************************************************************************************************************************************
+
+Multithreaded execution is an essential feature of the Java platform. Every application has at least one thread — or several, if you count "system" threads that do things like memory management and signal handling. But from the application programmer's point of view, you start with just one thread, called the main thread. This thread has the ability to create additional threads, as we'll demonstrate in the next section.
+
+********************************************************************************************************************************************
+
+Thread Objects
+
+Each thread is associated with an instance of the class Thread. There are two basic strategies for using Thread objects to create a concurrent application.
+
+	To directly control thread creation and management, simply instantiate Thread each time the application needs to initiate an asynchronous task.
+	To abstract thread management from the rest of your application, pass the application's tasks to an executor.
+
+This section documents the use of Thread objects. Executors are discussed with other high-level concurrency objects.
+
+Thread.sleep causes the current thread to suspend execution for a specified period. This is an efficient means of making processor time available to the other threads of an application or other applications that might be running on a computer system.
+
+********************************************************************************************************************************************
+
+Interrupts
+
+An interrupt is an indication to a thread that it should stop what it is doing and do something else. It's up to the programmer to decide exactly how a thread responds to an interrupt, but it is very common for the thread to terminate. 
+
+A thread sends an interrupt by invoking interrupt on the Thread object for the thread to be interrupted. 
+
+if (Thread.interrupted()) {
+        // We've been interrupted: no more crunching.
+        return;
+    }
+
+********************************************************************************************************************************************
+
+Joins
+
+The join method allows one thread to wait for the completion of another. If t is a Thread object whose thread is currently executing,
+
+t.join();
+causes the current thread to pause execution until t's thread terminates. 
+
+********************************************************************************************************************************************
+
+Using the Thread class directly has the following disadvantages.
+
+Creating a new thread causes some performance overhead.
+
+Too many threads can lead to reduced performance, as the CPU needs to switch between these threads.
+
+You cannot easily control the number of threads, therefore you may run into out of memory errors due to too many threads.
+********************************************************************************************************************************************
+
+After starting a thread, it can never be started again. If you does so, an IllegalThreadStateException is thrown. In such case, thread will run 
+once but for second time, it will throw exception.
+
+
+********************************************************************************************************************************************
+
+********************************************************************************************************************************************
+
+
+
+********************************************************************************************************************************************
+
+
+********************************************************************************************************************************************
+
+
+
+********************************************************************************************************************************************
+
+********************************************************************************************************************************************
+
+
+
+
+********************************************************************************************************************************************
+
+********************************************************************************************************************************************
+
+
+
+********************************************************************************************************************************************
+
+
+********************************************************************************************************************************************
+
+
+
+
+********************************************************************************************************************************************
+
+********************************************************************************************************************************************
+
+
+
+********************************************************************************************************************************************
+
+
+
+********************************************************************************************************************************************
+
+
+
+
+
+
+

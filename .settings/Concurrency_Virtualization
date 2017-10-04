@@ -1,0 +1,120 @@
+						Virtualization, Cloud computing and Distributed computers 
+	
+	What is Virtualization?
+	Virtualization is the process of creating a software-based (or virtual) representation of something rather than a physical one. 
+	Virtualization can apply to applications, servers, storage, and networks and is the single most effective way to reduce IT expenses 
+	while boosting efficiency and agility for all size businesses.
+	
+	********************************************************************************************************************************************	
+	
+	Benefits of Virtualization
+	Virtualization can increase IT agility, flexibility, and scalability while creating significant cost savings. Workloads get deployed faster, 
+	performance and availability increases and operations become automated, resulting in IT that's simpler to manage and less costly to own and 
+	operate. Additional benefits include:
+	Reduce capital and operating costs.
+	Minimize or eliminate downtime.
+	Increase IT productivity, efficiency, agility and responsiveness.
+	Provision applications and resources faster.
+	Enable business continuity and disaster recovery.
+	Simplify data center management.
+	Build a true Software-Defined Data Center
+	
+	********************************************************************************************************************************************
+	
+	Virtualization uses software to simulate the existence of hardware and create a virtual computer system. 
+	Doing this allows businesses to run more than one virtual system – and multiple operating systems and applications -- on a single server. 
+	This can provide economies of scale and greater efficiency.
+	
+	********************************************************************************************************************************************	
+	Network Virtualization : Network virtualization is the complete reproduction of a physical network in software.
+	
+	Server Virtualization : Most servers operate at less than 15 percent of capacity, leading to server sprawl and complexity. 
+		Server virtualization addresses these inefficiencies by allowing multiple operating systems to run on a single physical server as virtual machines
+	
+	Data virtualization is abstractitong the traditional technical details of data and data management, such as location, performance or format, in favor 
+	of broader access and more resiliency tied  business needs.
+	
+	Desktop virtualization is virtualizing a workstation load rather than a server. This allows the user to access the desktop remotely, typically using 
+	a thin client at the desk
+	
+	Application virtualization is abstracting the application layer away from the operating system. This way the application can run in an encapsulated 
+	form without being depended upon on the operating system underneath. This can allow a Windows application to run on Linux and vice versa, in addition 
+	to adding a level of isolation.
+	
+	Storage virtualization is the pooling of physical storage from multiple network storage devices into what appears to be a single storage device that is 
+	managed from a central console. Storage virtualization is commonly used in storage area networks.
+	
+	********************************************************************************************************************************************	
+	
+	The Virtual Machine
+	A virtual computer system is known as a “virtual machine” (VM):  a tightly isolated software container with an 
+	operating system and application inside.  Each self-contained VM is completely independent. Putting multiple VMs on a single 
+	computer enables several operating systems and applications to run on just one physical server, or “host”.
+	 
+	A thin layer of software called a hypervisor decouples the virtual machines from the host and dynamically allocates computing resources to each 
+	virtual machine as needed.
+	
+	Key Properties of Virtual Machines
+	
+	VMs have the following characteristics, which offer several benefits.
+	 
+	Partitioning 			: Run multiple operating systems on one physical machine. Divide system resources between virtual machines
+	Isolation    			: Provide fault and security isolation at the hardware level. reserve performance with advanced resource controls
+	Encapsulation			: Save the entire state of a virtual machine to files. Move and copy virtual machines as easily as moving and copying files
+	Hardware Independence 	: Provision or migrate any virtual machine to any physical server
+	
+	********************************************************************************************************************************************
+	It’s Not Cloud Computing
+
+	Cloud computing is not the same thing as virtualization; rather, it’s something you can do using virtualization. Cloud computing describes the 
+	delivery of shared computing resources (software and/or data) on demand through the Internet. Whether or not you are in the cloud, you can start by 
+	virtualizing your servers and then move to cloud computing for even more agility and increased self-service.  
+
+	********************************************************************************************************************************************
+	cloud computing is the delivery of computing services—servers, storage, databases, networking, software, analytics and more—over the Internet (“the cloud”). 
+	Companies offering these computing services are called cloud providers and typically charge for cloud computing services based on usage, similar to how you are billed for water or electricity at home.
+
+	IaaS
+	PaaS
+	SaaS
+	
+	********************************************************************************************************************************************
+	
+	Distributed computing is a model in which components of a software system are shared among multiple computers to improve efficiency and performance. 
+	In the broadest sense of the term, distributed computing just means that something is shared among multiple systems which may also be in different locations.
+	
+	Distributed computing is a computing concept that, in its most general sense, refers to multiple computer systems working on a single problem. In distributed 
+	computing, a single problem is divided into many parts, and each part is solved by different computers. As long as the computers are networked, they can 
+	communicate with each other to solve the problem. If done properly, the computers perform like a single entity.
+	
+	For example, in the typical distribution using the 3-tier model, user interface processing is performed in the PC at the user's location, 
+	business processing is done in a remote computer, and database access and processing is conducted in another computer that provides centralized 
+	access for many business processes. Typically, this kind of distributed computing uses the client/server communications model.
+	
+	Grid computing is a computing model involving a distributed architecture of large numbers of computers connected to solve a complex problem. 
+	In the grid computing model, servers or personal computers run independent tasks and are loosely linked by the Internet or low-speed networks.
+	
+	********************************************************************************************************************************************
+	The idea of distributing resources within a computer network is not new. This first started with the use of data entry terminals on mainframe computers, 
+	then moved into minicomputers and is now possible in personal computers and client-server architecture with more tiers.
+
+	A distributed computing architecture consists of a number of client machines with very lightweight software agents installed with one or more dedicated 
+	distributed computing management servers. The agents running on the client machines usually detect when the machine is idle and send a notification to the 
+	management server that the machine is not in use and available for a processing job. The agents then requests an application package. When the client machine 
+	receives this application package from the management server to process, it runs the application software when it has free CPU cycles and sends the result 
+	back to the management server. When the user returns and requires the resources again, the management server returns the resources was using to perform 
+	different tasks in the user's absence.
+
+	********************************************************************************************************************************************
+
+	Preorder is for binary tree only, and any node in binary tree cannot have a single right child without having left child
+
+	********************************************************************************************************************************************
+	
+	
+	
+	
+
+
+
+

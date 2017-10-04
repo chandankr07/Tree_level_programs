@@ -1,0 +1,160 @@
+
+Code Coverage :-
+
+Stack Overflow : 
+
+In computer science, code coverage is a measure used to describe the degree to which the source code of a program is executed 
+	when a particular test suite runs. A program with high code coverage, measured as a percentage, has had more of its source code 
+	executed during testing which suggests it has a lower chance of containing undetected software bugs compared to a program with low code coverage
+
+Code Coverage is a measurement of how many lines/blocks/arcs of your code are executed while the automated tests are running.
+code coverage is one of our exit criteria for each milestone. We have actually three code coverage metrics - coverage 
+from unit tests (from dev team), scenario tests (from test team) and combined coverage.
+
+while code coverage is a good metric of how much testing you are doing, it is not necessarily a good metric of how well you are 
+testing your product. There are other metrics you should use along with code coverage to ensure the quality. 
+
+Code coverage basically tests that how much of your code is covered under tests. So, if you have 90% code coverage than it means there is 
+10% of code that is not covered under tests. I know you might be thinking that 90% of the code is covered but you have to look from a 
+different angle. What is stopping you to get 100% code coverage?
+
+A good example will be this:
+
+if(customer.IsOldCustomer()) 
+{
+}
+else 
+{
+}
+
+Now, in the above code there are two paths/branches. If you are always hitting the "YES" branch then you are not covering the else part 
+and it will be shown in the Code Coverage results. This is good because now you know that what is not covered and you can write a test to 
+cover the else part. If there was no code coverage then you are just sitting on a time bomb to explode.
+
+
+Basic coverage criteria
+
+There are a number of coverage criteria, the main ones being
+
+Function coverage – Has each function (or subroutine) in the program been called?
+
+Statement coverage – Has each statement in the program been executed?
+
+Branch coverage – Has each branch (also called DD-path) of each control structure (such as in if and case statements) been executed? 
+	For example, given an if statement, have both the true and false branches been executed? Another way of saying this is, has every edge 
+	in the program been executed?
+
+Condition coverage (or predicate coverage) – Has each Boolean sub-expression evaluated both to true and false?
+
+
+To check if all possible values for a parameter are tested. For example, a string could be any of these commonly: a) null, b) empty, c) 
+	whitespace (space, tabs, new line), d) valid string, e) invalid string, f) single-byte string, g) double-byte string. Failure to test each 
+	possible parameter value may leave a bug. Testing only one of these could result in 100% code coverage as each line is covered, but as only 
+	one of seven options are tested, means, only 14.2% coverage of parameter value.
+
+Blog : 	
+
+Code coverage means measuring how much of your code is executed during your unit tests. Basically, that means that after running your 
+unit tests, you get a report showing you how many percent of the code that was executed during the tests, and also what lines precisely that 
+were executed.
+
+With the code coverage report in hand, you can analyse what parts of your code that was not run, and modify your unit tests so these parts 
+of the code are executed.
+
+The larger the coverage, the closer to 100%, that is, the better chances you have of having bug free code. Having a 100% code coverage though, 
+is not a guarantee that your code is bug free. For instance, code coverage does not guard against bugs that are caused by incorrect 
+implementations of the requirements. The code may work just fine, but if it's not what the client asked for, it's still a bug.
+
+To measure code coverage you need a coverage tool. Here is a small, but probably not exhaustive, list of code coverage tools for Java:
+	
+	IntelliJ IDEA Coverage
+	Emma - http://emma.sourceforge.net/
+	EclEmma - http://www.eclemma.org/
+	
+IntelliJ IDEA has built-in code coverage from version 7.0. IntelliJ IDEA both has its own code coverage engine, and it can use Emma.
+
+Emma is an open source code coverage tool for Java. You can run it as part of your Ant or Maven builds.
+
+EclEmma is Emma in Eclipse.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Ant                                                                             Maven
+Ant doesn't has formal conventions, so we need to provide information 
+	of the project structure in build.xml file.	
+																				Maven has a convention to place source code, compiled code etc.
+																				So we don't need to provide information about the project structure in pom.xml file.
+Ant is procedural, you need to provide information about what to do and 								
+	when to do through code. You need to provide order.							Maven is declarative, everything you define in the pom.xml file.		
+																										
+There is no life cycle in Ant.													There is life cycle in Maven.
+It is a tool box.																It is a framework.
+It is mainly a build tool.														It is mainly a project management tool.
+The ant scripts are not reusable.												The maven plugins are reusable.
+It is less preferred than Maven.												It is more preferred than Ant.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+What is Performance Testing?
+
+Performance testing is a type of testing to ensure software applications will perform well under their expected workload.
+
+The focus of Performance testing is checking a software program's
+
+Speed       - Determines whether the application responds quickly
+Scalability - Determines maximum user load the software application can handle.
+Stability   - Determines if the application is stable under varying loads
+
+Without performance testing, software is likely to suffer from issues such as: running slow while several users use it simultaneously, 
+inconsistencies across different operating systems and poor usability.
+
+Types of Performance Testing
+
+Load testing - checks the application's ability to perform under anticipated user loads. The objective is to identify performance 
+bottlenecks before the software application goes live.
+
+Stress testing - involves testing an application under extreme workloads to see how it handles high traffic or data processing. 
+The objective is to identify breaking point of an application.
+
+Endurance testing - is done to make sure the software can handle the expected load over a long period of time.
+
+Spike testing - tests the software's reaction to sudden large spikes in the load generated by users.
+
+Volume testing - Under Volume Testing large no. of. Data is populated in database and the overall software system's behavior is monitored. 
+The objective is to check software application's performance under varying database volumes.
+
+Scalability testing - The objective of scalability testing is to determine the software application's effectiveness in "scaling up" 
+to support an increase in user load. It helps plan capacity addition to your software system.
+
+Common Performance Problems : 
+
+Long Load time - Load time is normally the initial time it takes an application to start. This should generally be kept to a minimum. 
+	While some applications are impossible to make load in under a minute, Load time should be kept under a few seconds if possible.
+
+Poor response time - Response time is the time it takes from when a user inputs data into the application until the application outputs 
+	a response to that input. Generally this should be very quick. Again if a user has to wait too long, they lose interest.
+
+Poor scalability - A software product suffers from poor scalability when it cannot handle the expected number of users or when it 
+	does not accommodate a wide enough range of users. Load testing should be done to be certain the application can handle the anticipated 
+	number of users.
+
+Bottlenecking - Bottlenecks are obstructions in system which degrade overall system performance. Bottlenecking is when either coding errors 
+	or hardware issues cause a decrease of throughput under certain loads. Bottlenecking is often caused by one faulty section of code. 
+	The key to fixing a bottlenecking issue is to find the section of code that is causing the slow down and try to fix it there. Bottle 
+	necking	is generally fixed by either fixing poor running processes or adding additional Hardware. Some common performance bottlenecks are
+		
+		CPU utilization
+		Memory utilization
+		Network utilization
+		Operating System limitations
+		Disk usage
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------

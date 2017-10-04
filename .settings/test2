@@ -1,0 +1,53 @@
+
+Volatile Keyword :
+
+	The volatile keyword in Java is used as an indicator to Java compiler and Thread that do not cache value of this variable and always read it from main memory. 
+	So if you want to share any variable in which read and write operation is atomic by implementation e.g. read and write in an int or a boolean variable then  
+	you can declare them as volatile variable.
+	
+	The Java volatile keyword cannot be used with method or class and it can only be used with a variable.
+	
+	volatile keyword in java guarantees that value of the volatile variable will always be read from main memory and "happens-before" relationship in Java 
+	Memory model will ensure that content of memory will be communicated to different threads
+	
+	"A volatile variable can be used as an alternative way of achieving synchronization in Java in some cases, like Visibility. with volatile variable, 
+	it's guaranteed that all reader thread will see updated value of the volatile variable once write operation completed, without volatile keyword different 
+	reader thread may see different values.
+	
+	If a variable is not shared between multiple threads, you don't need to use volatile keyword with that variable.
+
+Synchronized and Volatile : 
+
+	1. The volatile keyword in Java is a field modifier while synchronized modifies code blocks and methods.
+	
+	2. Synchronized obtains and releases the lock on monitor’s Java volatile keyword doesn't require that.
+	
+	3. Threads in Java can be blocked for waiting for any monitor in case of synchronized, that is not the case with the volatile keyword in Java.
+	
+	4. Synchronized method affects performance more than a volatile keyword in Java.
+	
+	5. Since volatile keyword in Java only synchronizes the value of one variable between Thread memory and "main" memory while synchronized synchronizes the value 
+		of all variable between thread memory and "main" memory and locks and releases a monitor to boot. Due to this reason synchronized keyword in Java is likely to 
+		have more overhead than volatile.
+	
+	6. You can not synchronize on the null object but your volatile variable in Java could be null.
+	
+	7. From Java 5 writing into a volatile field has the same memory effect as a monitor release, and reading from a volatile field has the same memory effect as a monitor acquire
+
+ExecutorService Example :
+	
+	Here is a simple Java ExectorService example:
+	
+	ExecutorService executorService = Executors.newFixedThreadPool(10);
+	
+	executorService.execute(new Runnable() {
+	    public void run() {
+	        System.out.println("Asynchronous task");
+	    }
+	});
+	
+	executorService.shutdown();
+	First an ExecutorService is created using the newFixedThreadPool() factory method. This creates a thread pool with 10 threads executing tasks.
+	
+	Second, an anonymous implementation of the Runnable interface is passed to the execute() method. This causes the Runnable to be executed by one of the threads in the ExecutorService.
+	
