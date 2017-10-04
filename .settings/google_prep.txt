@@ -1,0 +1,139 @@
+preparation for google :
+
+How internet works.
+ipv4 and ipv6 
+
+terms : ping, icmp, DHCP, Protocol stack, 
+
+protocols : TCP/IP
+When information is sent over the Internet, it is generally broken up into smaller pieces or "packets". The use of packets facilitates speedy transmission since different parts of a 
+message can be sent by different routes and then reassembled at the destination. It is also a safety measure to minimize the chances of losing information in the transmission process. 
+TCP is the means for creating the packets, putting them back together in the correct order at the end, and checking to make sure that no packets got lost in transmission. If necessary, 
+TCP will request that a packet be resent.
+
+Internet Protocol (IP) is the method used to route information to the proper address. Every computer on the Internet has to have its own unique address known as the IP address. Every 
+packet sent will contain an IP address showing where it is supposed to go. A packet may go through a number of computer routers before arriving at its final destination and IP controls 
+the process of getting everything to the designated computer. Note that IP does not make physical connections between computers but relies on TCP for this function. IP is also used in 
+conjunction with other protocols that create connections.
+
+UDP and ICMP : User Datagram protocol 
+Another member of the TCP/IP suite is User Datagram Protocol (UDP). (A datagram is almost the same as a packet except that sometimes a packet will contain more than one datagram.) This 
+protocol is used together with IP when small amounts of information are involved. It is simpler than TCP and lacks the flow-control and error-recovery functions of TCP. Thus, it uses 
+fewer system resources.
+
+ICMP : A different type of protocol is Internet Control Message Protocol (ICMP) . It defines a small number of messages used for diagnostic and management purposes. It is also used by 
+Ping and Traceroute.
+
+HTTP : HTTP allows for communication between a variety of hosts and clients, and supports a mixture of network configurations. it assumes very little about a particular system, and does 
+not keep state between different message exchanges.  Current Version : HTTP/1.1
+
+This makes HTTP a stateless protocol. The communication usually takes place over TCP/IP, but any reliable transport can be used. The default port for TCP/IP is 80, but other ports can 
+also be used.
+
+The HTTPS protocol provides a secure connection on the web. The easiest way to know if you are using HTTPS is to check the browser's address bar. HTTPs' secure component involves 
+inserting a layer of encryption/decryption between HTTP and TCP. This is the Secure Sockets Layer (SSL) or the improved Transport Layer Security (TLS). SSL uses a powerful form of 
+encryption using RSA and public-key cryptography. 
+
+
+TCP/IP is a two-layer program. The higher layer, Transmission Control Protocol, manages the assembling of a message or file into smaller packets that are transmitted over the 
+Internet and received by a TCP layer that reassembles the packets into the original message. The lower layer, Internet Protocol, handles the address part of each packet so that 
+it gets to the right destination. Each gateway computer on the network checks this address to see where to forward the message. Even though some packets from the same message are 
+routed differently than others, they'll be reassembled at the destination.TCP/IP and the higher-level applications that use it are collectively said to be "stateless" because each 
+client connection is newly made without regard to whether a previous connection had been established.
+
+Personal computer users with an analog phone modem connection to the Internet usually get to the Internet through the Serial Line Internet Protocol (SLIP) or the Point-to-Point Protocol (PPP).
+These protocols encapsulate the IP packets so that they can be sent over the dial-up phone connection to an access provider's modem. 
+
+Layers : Data Link layer, Internet layer, Transport Layer, Application layer
+
+
+UDP :
+UDP is an ideal protocol for network applications in which perceived latency is critical such as gaming, voice and video communications, which can suffer some data loss without adversely 
+affecting perceived quality. 
+
+
+Memory leak occurs when programmers create a memory in heap and forget to delete it. a memory leak may happen when an object is stored in memory but cannot be accessed by the running code.
+	memory leak in Java is a situation where some objects are not used by application any more, but GC fails to recognize them as unused.
+	
+	
+	There are some objects which are considered “important” by GC. These are called GC roots and are (almost) never discarded. They are, for example, currently executing method’s local 
+		variables and input parameters, application threads, references from native code and similar “global” objects.
+
+Command : 	tracert : traace all the hops between source and destinatiuon conputer
+			pathping : list all the hops/routers between S/D and degree of packet loss at any given router/link. 
+			IPconfig : tell about IP address, subnet masks and DNS and default gateway.
+			Netstat  :  Netstat displays the active TCP connections and ports on which the computer is listening, Ethernet statistics, the IP routing table, statistics for the IP, ICMP, 
+			TCP, and UDP protocols. 
+			
+			Netsh : The command "the network service shell, a complete suite of powerful tools. This suite is invoked from the standard command-line but has it has own interface or shell 
+			with a large number of sub-commands.
+						
+Context				Sub-context			Commands
+				|	connect 	|	Establishes, verifies, and then drops a connection	iphost, mail, news
+{diag}			|	ping 		|	Verifies connectivity	adapter, iphost, mail, news
+				|	show 		|	Lists network components and settings	all, client, ip, mail, modem
+				|	gui 		|	Starts the network diagnostics tool in Help and Support Center.	Graphical user interface			
+				
+				
+	Example : netsh diag connect mail
+			  netsh diag show all
+			  netsh firewall set
+			  netsh firewall show
+	Also you can reset the iP address through netsh
+				netsh int ip reset {logfile.txt}
+				netsh int ip reset C:\chandan.txt
+				
+				
+VAST : VAST is a Video Ad Serving Template for structuring ad tags that serve ads to video players. Using an XML schema, VAST transfers important metadata about an ad from the ad server 
+to a video player.it's an XML response framework that enables a consistent delivery format for ad across streaming video platforms.
+
+VAST and VMAP Error codes lets us know that there are some issue with schema or ad or ad duration so we can get to know easily where we can check for resolving the issue.
+
+VPAID: the Video Player-Ad Interface Definition specifies the protocol between the ad and the video player required to enable ad interactivity and other advance video advertising functionality
+
+
+VMAP: the Video Multi-Ad Playlist is an XML response framework that defines where to place ads within the video content.
+
+Cookies allow the server to attach arbitrary information for outgoing responses via the Set-Cookie response header. A cookie is set with one or more name=value pairs separated by 
+semicolon (;), as in Set-Cookie: session-id=12345ABC; username=nettuts.
+
+A server can also restrict the cookies to a specific domain and path, and it can make them persistent with an expires value. Cookies are automatically sent by the browser for each request 
+made to a server, and the browser ensures that only the domain- and path-specific cookies are sent in the request. The request header Cookie: name=value [; name2=value2] is used to send 
+these cookies to the server.	
+
+Techniques like OAuth simplify this type of feature, but it still requires user consent in order to work properly. Authentication plays a large role here, and it is probably the only way 
+to identify and verify the user.
+
+A cookie is a bit of data stored by the browser and sent to the server with every request.
+A session is a collection of data stored on the server and associated with a given user (usually via a cookie containing an id code)
+
+Cookies are used to identify sessions. Visit any site that is using cookies and pull up either Chrome inspect element and then network or FireBug if using Firefox.
+
+You can see that there is a header sent to a server and also received called Cookie. Usually it contains some personal information (like an ID) that can be used on the server to identify 
+a session. These cookies stay on your computer and your browser takes care of sending them to only the domains that are identified with it.
+
+If there were no cookies then you would be sending a unique ID on every request via GET or POST. Cookies are like static id's that stay on your computer for some time.
+A session is a group of information on the server that is associated with the cookie information. If you're using PHP you can check the session.save_path location and actually "see sessions". 
+They are either files on the server filesystem or backed in a database.
+
+Sessions are server-side files that contain user information, while Cookies are client-side files that contain user information. Sessions have a unique identifier that maps them to specific 
+users. This identifier can be passed in the URL or saved into a session cookie.
+
+Most modern sites use the second approach, saving the identifier in a Cookie instead of passing it in a URL (which poses a security risk). You are probably using this approach without knowing 
+it, and by deleting the cookies you effectively erase their matching sessions as you remove the unique session identifier contained in the cookies.
+		
+A session can be defined as a server-side storage of information that is desired to persist throughout the user's interaction with the web site or web application. 
+Instead of storing large and constantly changing information via cookies in the user's browser, only a unique identifier is stored on the client side (called a "session id"). This session 
+id is passed to the web server every time the browser makes an HTTP request (ie a page link or AJAX request). The web application pairs this session id with it's internal database and 
+retrieves the stored variables for use by the requested page.		
+
+HTTP Caching
+
+It is generally agreed that doing the same work twice is wasteful. This is the guiding principle around the concept of HTTP caching, a fundamental pillar of the HTTP Network Infrastructure. 
+Because most of the operations are over a network, a cache helps save time, cost and bandwidth, as well as provide an improved experience on the web.
+
+Caches are used at several places in the network infrastructure, from the browser to the origin server. Depending on where it is located, a cache can be categorized as:
+
+Private: within a browser, caches usernames, passwords, URLs, browsing history and web content. They are generally small and specific to a user.
+Public: deployed as caching proxies between the server and client. These are much larger because they serve multiple users. A common practice is to keep multiple caching proxies between 
+the client and the origin-server. This helps to serve frequently accessed content, while still allowing a trip to the server for infrequently needed content.		

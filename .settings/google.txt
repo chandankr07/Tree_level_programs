@@ -1,0 +1,32 @@
+﻿sorting			
+BST
+Dictionary related question
+Recursion -(max computed results of array of elements) , (trees), BST, check infinite loop
+Understand every data structure from Stack to graphs, should be able to give definition and its formulas like trees formulas for complete binary tree, height, max level of balanced binary tree, number of nodes, number of leaves and its usage in real life.
+BFS/DFS
+Find out a substring from a huge file with high performance
+Write a program to print a two-dimensional array in spiral order.  	
+Given two strings A, and B, write a program to check if A is a substring of all possible anagrams of B.  
+Arraylist/vcetor/hashmap/hashtable/linkedlist
+RB tee
+merge two sorted lists. 
+Find the median of an incoming stream of integers... 
+Implement a FIFO queue using a singly linked list. How to insert locks into the enque and deque function to prevent simultaneous access by multiple threads. 
+One question involved creating a collection of the longest common phrases between two strings.
+Dynamic programming
+Computer architecture 
+Tree/ algos related to trees
+Remove duplicates
+Graphs related questions
+Complexities, Design A DB for Huge traffic, Sudoku validity checker, greedy algorithm, 2D matrix
+Given a string , reverse the vowels in it ( with and without using extra memory )
+Given a set of points, find the smallest rectangle by area.
+Trie data structure . Basically the question was given a prefix how do you retrieve the words from a large dictionary and then how to perform insert operations etc.
+Overlapping handshake problem . How many combinations… 
+Given a dictionary of strings and another string find out if the string is an exact match to some words in the dictionary or varies at most in only one place of some word of the dictionary.  
+Find the coordinates of the rectangle which is parallel to axis and has minimum area ?
+frog jump problem
+Find first sustring consists of unique characters in given word [ex. google -> ogle] 
+Problems on trees. (get all paths from node to leaf 
+Write a language parser on the whiteboard.  
+difference between a binary tree and a binary search tree.

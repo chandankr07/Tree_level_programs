@@ -1,0 +1,334 @@
+
+Comparators and comparable in Java are two interfaces which is used to implement sorting in Java. It’s often required to sort 
+		objects stored in any collection classes like ArrayList, HashSet or in Array and that time we need to use either  compare() or  
+		compareTo() method defined in java.util.Comparator and java.lang.Comparable.
+__________________________________________________________________________________________________________________________________________________________________________
+
+Comparator : java.util package || Method : 	public int compare (Object o1, Object o2)
+Comparable : java.lang package || Method :  public int compareTo(Object o)
+
+Method area :In method area, all class level information like class name, immediate parent class name, methods and variables information etc. are stored, including static variables. 
+			 There is only one method area per JVM, and it is a shared resource.
+Heap area :  Information of all objects is stored in heap area. There is also one Heap Area per JVM. It is also a shared resource.
+
+Stack area : For every thread, JVM create one run-time stack which is stored here. Every block of this stack is called activation record/stack frame which store methods calls. 
+			 All local variables of that method are stored in their corresponding frame. After a thread terminate, itâ€™s run-time stack will be destroyed by JVM. It is not a shared resource.
+
+PC Registers : Store address of current execution instruction of a thread. Obviously each thread has separate PC Registers.
+
+Native method stacks :For every thread, separate native stack is created. It stores native method information.
+
+Classpath is a parameter in the Java Virtual Machine or the Java compiler that specifies the location of user-defined classes and packages. 
+			The parameter may be set either on the command-line, or through an environment variable.
+
+Execution Engine
+
+Execution engine execute the .class (bytecode). It reads the byte-code line by line, use data and information present in various memory area and execute instructions. It can be classified in three parts :-
+
+Interpreter : It interprets the bytecode line by line and then executes. The disadvantage here is that when one method is called multiple times, every time interpretation is required.
+
+Just-In-Time Compiler(JIT) : It is used to increase efficiency of interpreter.It compiles the entire bytecode and changes it to native code so whenever interpreter see repeated method calls,JIT provide direct 
+native code for that part so re-interpretation is not required,thus efficiency is improved.
+
+Garbage Collector : It destroy un-referenced objects.
+
+Java Native Interface (JNI) : It is a interface which interacts with the Native Method Libraries and provides the native libraries(C, C++) required for the execution. It enables JVM to call C/C++ 
+libraries and to be called by C/C++ libraries which may be specific to hardware.
+
+Native Method Libraries : It is a collection of the Native Libraries(C, C++) which are required by the Execution Engine.
+______________________________________________________________________________________________________________________________________________________________________
+
+
+When programming in Java, you make other classes available to the class you are writing by putting something like this at the top of your source file:
+
+import org.javaguy.coolframework.MyClass;
+Or sometimes you 'bulk import' stuff by saying:
+
+import org.javaguy.coolframework.*;
+So later in your program when you say:
+
+MyClass mine = new MyClass();
+The Java Virtual Machine will know where to find your compiled class.
+
+It would be impractical to have the VM look through every folder on your machine, so you have to provide the VM a list of places to look. This is done by putting folder and jar files on your classpath.
+
+Before we talk about how the classpath is set, let's talk about .class files, packages, and .jar files.
+
+First, let's suppose that MyClass is something you built as part of your project, and it is in a directory in your project called 'output'. The .class file would be at 
+		'output/org/javaguy/coolframework/MyClass.class' (along with every other file in that package). In order to get to that file, your path would simply need to contain the folder 'output', 
+		not the whole package structure, since your import statement provides all that information to the VM.
+
+Now let's suppose that you bundle CoolFramework up into a .jar file, and put that CoolFramework.jar into a lib directory in your project. 
+	You would now need to put 'lib/CoolFramework.jar' into your classpath. The VM will look inside the jar file for the 'org/javaguy/coolpackage' part, and find your class.
+
+So, classpaths contain:
+
+JAR files, and
+Paths to the top of package hierarchies.
+
+________________________________________________________________________________________________________________________________________________________________________________________
+
+Restful Web service 
+
+REST stands for Representational State Transfer. It is web standard based architecture . For communication it uses HTTP protocol.
+
+It was introduced by Roy Fielding in 2000.REST follows one-to-one mapping between create, read, update, and delete operations and HTTP methods.
+
+To create a resource on the server, use POST.
+To retrieve a resource, use GET.
+To change the state of a resource or to update it, use PUT.
+To remove or delete a resource, use DELETE.
+RESTful web services is a Java programming language API designed to make it easy to develop applications that use the REST architecture.In REST architecture, a REST Server simply provides access to 
+resources and the REST client accesses and presents the resources
+
+Web services based on REST Architecture are known as RESTful Web Services. These web services use HTTP methods to implement the concept of REST architecture. A RESTful web service usually defines a URI 
+(Uniform Resource Identifier), which is a service that provides resource representation such as JSON and a set of HTTP Methods.
+________________________________________________________________________________________________________________________________________________________________________________________
+
+A race condition is an undesirable situation that occurs when a device or system attempts to perform two or more operations at the same time, but because of the nature of the device or system, 
+	the operations must be done in the proper sequence to be done correctly.
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+A race condition occurs when two or more threads can access shared data and they try to change it at the same time. Because the thread scheduling algorithm can swap between threads at any time,
+	 you don't know the order in which the threads will attempt to access the shared data. Therefore, the result of the change in data is dependent on the thread scheduling algorithm,
+	 i.e. both threads are "racing" to access/change the data.
+
+Problems often occur when one thread does a "check-then-act" (e.g. "check" if the value is X, then "act" to do something that depends on the value being X) and another thread does
+ something to the value in between the "check" and the "act". E.g:
+
+if (x == 5) // The "Check"
+{
+   y = x * 2; // The "Act"
+
+   // If another thread changed x in between "if (x == 5)" and "y = x * 2" above,
+   // y will not be equal to 10.
+}
+The point being, y could be 10, or it could be anything, depending on whether another thread changed x in between the check and act. You have no real way of knowing.
+
+In order to prevent race conditions from occurring, you would typically put a lock around the shared data to ensure only one thread can access the data at a time. This would mean something like this:
+
+// Obtain lock for x
+if (x == 5)
+{
+   y = x * 2; // Now, nothing can change x until the lock is released. 
+              // Therefore y = 10
+}
+// release lock for x
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+Java developers only care about creating an object, they don't care about cleaning up, that is done by the garbage collector, but it can only collect objects which have no live strong 
+	reference or it's not reachable from any thread.
+
+If an object, which is supposed to be collected but still lives in memory due to unintentional strong reference then it's known as a memory leak in Java. 
+	ThreadLocal variables in Java web application can easily cause the memory leak.
+
+1) Objects are created on the heap in Java irrespective of their scope e.g. local or member variable. while it's worth noting that class variables or static members are created in method area of 
+	Java memory space and both heap and  method area is shared between different thread.
+
+2) Garbage collection is a mechanism provided by Java Virtual Machine to reclaim heap space from objects which are eligible for Garbage collection.
+
+3) Garbage collection relieves Java programmer from memory management which is an essential part of C++ programming and gives more time to focus on business logic.
+
+4) Garbage Collection in Java is carried by a daemon thread called Garbage Collector.
+
+5) Before removing an object from memory garbage collection thread invokes finalize() method of that object and gives an opportunity to perform any sort of cleanup required.
+
+6) You as Java programmer can not force garbage collection in Java; it will only trigger if JVM thinks it needs a garbage collection based on Java heap size.
+
+7) There are methods like System.gc() and Runtime.gc() which is used to send request of Garbage collection to JVM but its not guaranteed that garbage collection will happen.
+
+8) If there is no memory space for creating a new object in Heap Java Virtual Machine throws OutOfMemoryError or java.lang.OutOfMemoryError heap space
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+A segmentation fault (aka segfault) is a common condition that causes programs to crash; they are often associated with a file named core . Segfaults are caused by a program trying to read or write an illegal memory location.
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+	Difference between DOM and SAX XML Parser in Java
+	
+	DOM XML Parser in Java : 
+	DOM Stands for Document Object Model and it represent an XML Document into tree format which each element representing tree branches. DOM Parser creates an In Memory tree representation of XML file 
+	and then parses it, so it requires more memory and it's advisable to have increased the heap size for DOM parser in order to avoid Java.lang.OutOfMemoryError:java heap space . 
+	
+	Parsing XML file using DOM parser is quite fast if XML file is small but if you try to read a large XML file using DOM parser there is more chances that it will take a long time or even may not be able 
+	to load it completely simply because it requires lot of memory to create XML Dom Tree. Java provides support DOM Parsing and you can parse XML files in Java using DOM parser. DOM classes are in w3c.dom 
+	package while DOM Parser for Java is in JAXP (Java API for XML Parsing) package
+	
+	
+	SAX XML Parser in Java : 
+	SAX Stands for Simple API for XML Parsing. This is an event based XML Parsing and it parse XML file step by step so much suitable for large XML Files. SAX XML Parser fires an event when it 
+	encountered opening tag, element or attribute, and the parsing works accordingly. Itâ€™s recommended to use SAX XML parser for parsing large XML files in Java because it doesn't require to load whole 
+	XML file in Java and it can read a big XML file in small parts. Java provides support for SAX parser and you can parse any XML file in Java using SAX Parser, I have covered an example of reading XML 
+	file using SAX Parser here. One disadvantage of using SAX Parser in java is that reading XML file in Java using SAX Parser requires more code in comparison of DOM Parser.
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+	Encapsulation in java is a process of wrapping code and data together into a single unit, for example capsule i.e. mixed of several medicines.
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+	Creating API Document | javadoc tool
+	
+	We can create document api in java by the help of javadoc tool. In the java file, we must use the documentation comment /**... */ to post information for the class, method, constructor, fields etc.
+	
+	Let's see the simple class that contains documentation comment.
+	
+	package com.abc;  
+	/** This class is a user-defined class that contains one methods cube.*/  
+	public class M{  
+	  
+	/** The cube method prints cube of the given number */  
+	public static void  cube(int n){System.out.println(n*n*n);}  
+	}  
+	To create the document API, you need to use the javadoc tool followed by java file name. There is no need to compile the javafile.
+	
+	On the command prompt, you need to write:
+	
+	javadoc M.java
+	to generate the document api. Now, there will be created a lot of html files. Open the index.html file to get the information about the classes.
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+	Java Method Overloading example
+	
+	class OverloadingExample{  
+	static int add(int a,int b){
+		return a+b;
+		}  
+	static int add(int a,int b,int c){
+		return a+b+c;
+		}  
+	}  
+	
+	Java Method Overriding example : 
+	
+	class Animal{  
+	void eat(){System.out.println("eating...");}  
+	}  
+	class Dog extends Animal{  
+	void eat(){System.out.println("eating bread...");}  
+	}  
+	
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+	ArrayList																			LinkedList
+	1) ArrayList internally uses dynamic array to store the elements.					LinkedList internally uses doubly linked list to store the elements.
+	2) Manipulation with ArrayList is slow because it internally uses array. 
+		If any element is removed from the array, all the bits are shifted in memory.	Manipulation with LinkedList is faster than ArrayList because it uses doubly linked list so no bit shifting is required 
+																						in memory.
+	3) ArrayList class can act as a list only because it implements List only.			LinkedList class can act as a list and queue both because it implements List and Deque interfaces.
+	4) ArrayList is better for storing and accessing data.								LinkedList is better for manipulating data.
+	
+	
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+	HashMap									TreeMap
+	1) HashMap can contain one null key.	TreeMap can not contain any null key.
+	2) HashMap maintains no order.			TreeMap maintains ascending order.
+	
+	
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+	Type	Description
+	Member Inner Class	    A class created within class and outside method.
+	Anonymous Inner Class	A class created for implementing interface or extending class. Its name is decided by the java compiler.
+	Local Inner Class	    A class created within method.
+	Static Nested Class	    A static class created within class.
+	Nested Interface	    An interface created within class or interface.
+	
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+	
+	equals() and hashcode() : These methods can be found in the Object class and hence available to all java classes.Using these two methods, an object can be stored or retrieved from a Hashtable, 
+	HashMap or HashSet.
+
+	The part of the contract here which is important is: objects which are .equals() MUST have the same .hashCode(). If you have two objects which are .equals(), but have different hash codes, you lose!
+
+	https://www.java2blog.com/hashcode-and-equals-method-in-java/
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+Comparators and comparable in Java are two interfaces which is used to implement sorting in Java. It’s often required to sort 
+		objects stored in any collection classes like ArrayList, HashSet or in Array and that time we need to use either  compare() or  
+		compareTo() method defined in java.util.Comparator and java.lang.Comparable.
+
+Comparator : java.util package || Method : 	public int compare (Object o1, Object o2)
+Comparable : java.lang package || Method :  public int compareTo(Object o)
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+Why string is immutable : https://www.java2blog.com/why-string-is-immutable-in-java/
+
+__________________________________________________________________________________________________________________________________________________________________________________________________
+
+Constructer : https://www.java2blog.com/constructor-java/
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+___________________________________________________________________________________________________________________________________________________________________________________________________
+
+
+
+
+
+
+
+
+
